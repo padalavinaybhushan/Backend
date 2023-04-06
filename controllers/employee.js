@@ -32,7 +32,7 @@ const postclogin = asyncHandler(async (req,res)=>{
    try {
     console.log("plk 890");
     const obj = await Employee.findOne({email:req.body.email,password:req.body.password})
-    //console.log(obj,obj.email);
+    console.log(obj,obj.email);
     if(obj){
         const accessToken = jwt.sign({
             user:{
@@ -40,7 +40,7 @@ const postclogin = asyncHandler(async (req,res)=>{
                 email:req.body.email
             }
         },process.env.ACCESS_TOKEN_SECERT,{expiresIn:"15m"})
-        console.log(1);
+        console.log(1,obj,accessToken);
         res.json({"user":obj,"accessToken":accessToken,"okay":true});
     }
     else{
