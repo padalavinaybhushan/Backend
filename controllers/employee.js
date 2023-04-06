@@ -29,7 +29,8 @@ const getclogin = asyncHandler(async (req,res)=>{
 
 const postclogin = asyncHandler(async (req,res)=>{
    // const {email,password} = req.body;
-   console.log("plk 890");
+   try {
+    console.log("plk 890");
     const obj = await Employee.findOne({email:req.body.email,password:req.body.password})
     //console.log(obj,obj.email);
     if(obj){
@@ -47,6 +48,10 @@ const postclogin = asyncHandler(async (req,res)=>{
         res.json({"noUser":true,"okay":false});
     }
     
+   } catch (error) {
+    res.send(error)
+   }
+ 
 
 })
 
