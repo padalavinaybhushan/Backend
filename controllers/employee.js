@@ -159,7 +159,8 @@ const postresumeDB = asyncHandler(async(req,res)=>{
     if(req.file){
         var file = req.file
         var imageName = generateFileName()
-        const tem = await uploadFile(file.buffer, imageName, file.mimetype)
+        var filestream = await fs.createReadStream(file.path)
+        const tem = await uploadFile(filestream, imageName, file.mimetype)
         imageName = 'https://jobportaluploads.s3.ap-southeast-2.amazonaws.com/' + imageName
        // var dest = 'uploads'+req.file.path.substr(req.file.path.lastIndexOf('/'))
         if(req.body.canId){
