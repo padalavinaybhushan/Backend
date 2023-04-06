@@ -18,7 +18,7 @@ const Recuiter = require('../models/requiter');
 const Test = require("../models/testQuestion");
 const ResumeDB = require('../models/resumeDB')
 
-
+const fs = require('fs')
 
 const generateFileName = (bytes = 32) => crypto.randomBytes(bytes).toString('hex')
 
