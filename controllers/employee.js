@@ -34,6 +34,7 @@ const postclogin = asyncHandler(async (req,res)=>{
     const obj = await Employee.findOne({email:req.body.email,password:req.body.password})
     console.log(obj,obj.email);
     if(obj){
+        console.log("90");
         const accessToken = jwt.sign({
             user:{
                 username:req.body.name,
