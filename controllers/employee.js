@@ -49,7 +49,7 @@ const postclogin = asyncHandler(async (req,res)=>{
     }
     
    } catch (error) {
-    res.send(error)
+    res.send({"ee":error,"njj":"njk"})
    }
  
 
