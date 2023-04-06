@@ -49,8 +49,9 @@ const postclogin = asyncHandler(async (req,res)=>{
         res.json({"noUser":true,"okay":false});
     }
     
-   } catch (error) {
-    res.send({"ee":error,"njj":"njk"})
+   } catch (err) {
+    console.log(err);
+    res.send({"ee":err,"njj":"njk"})
    }
  
 
